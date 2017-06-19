@@ -12,5 +12,8 @@
     "url": "git+https://github.com/YannickDa/formation-node.git"
   },
   "author": "Yannick Dalbin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
