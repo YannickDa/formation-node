@@ -1,8 +1,8 @@
-const http = require("http")
+const express = require("express")
 
-const server = http.createServer()
+const server = express()
 
-server.on("request", function (req, res) {
+server.get("/", function (req, res) {
   res.end("Hello World :")
 })
 
