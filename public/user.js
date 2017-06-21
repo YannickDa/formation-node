@@ -1,4 +1,12 @@
 $(function () {
+  const refreshUsers = function () {
+    $.get("/users", function (users) {
+      $('#list').html(users.map(function (user) {
+        return "<li>" + user + "</li>"
+      }))
+    })
+  }
+
   $("#addUser").on("submit", function (e) {
     e.preventDefault();
     $(".error").remove()
@@ -6,10 +14,12 @@ $(function () {
     const form = e.target
     if (form.username.value !== "") {
       $.post("/user", { user: form.username.value }, function () {
-        console.log("Ajouté !")
+        $("#list").append("<li>" + form.username.value + "</li>")
       })
     } else {
       $(form).append("<div class=\"error\">Veuillez saisir un username</div>")
     }
   })
+
+  refreshUsers();
 })
