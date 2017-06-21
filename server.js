@@ -1,9 +1,8 @@
 const express = require("express")
+const IndexController = require("./controllers/IndexController")
 
 const server = express()
 
-server.get("/", function (req, res) {
-  res.end("Hello World :")
-})
+server.get("/", IndexController.indexAction)
 
 server.listen(3000)
