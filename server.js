@@ -6,7 +6,9 @@ const UsersController = require("./controllers/UsersController")
 
 const server = express()
 
-server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({ extended: false }))
+
+server.use(express.static("public"))
 
 server.get("/", IndexController.indexAction)
 
